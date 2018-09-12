@@ -1,10 +1,11 @@
 import os
 import shutil
+
 import delvenv
 
 appdirectory = 'app/'
 stagedirectory = 'stage/'
-filearray = ['swappascrape.py']
+filearray = ['swappascrape.py', 'op5search.csv']
 
 #for file in filearray:
 #    shutil.move(appdirectory + file, 'stage/')
@@ -22,6 +23,7 @@ def copyDirectory(src, dest):
 
 
 copyDirectory(appdirectory,stagedirectory)
+os.remove(os.path.join(stagedirectory, 'op5search.csv'))
 
 shutil.rmtree(appdirectory)
 
