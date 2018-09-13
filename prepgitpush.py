@@ -7,9 +7,6 @@ appdirectory = 'app/'
 stagedirectory = 'stage/'
 filearray = ['swappascrape.py', 'op5search.csv']
 
-#for file in filearray:
-#    shutil.move(appdirectory + file, 'stage/')
-
 
 def copyDirectory(src, dest):
     try:
@@ -22,15 +19,10 @@ def copyDirectory(src, dest):
         print('Directory not copied. Error: %s' % e)
 
 
-def cleanup():
-    global filearray
-    for f in filearray:
-        os.remove(os.path.join(stagedirectory, f))
+copyDirectory(appdirectory, stagedirectory)
+os.remove(os.path.join(stagedirectory, 'op5search.csv'))
 
-    shutil.rmtree(appdirectory)
-    # Delete the virtualenv before pushing.
-    delvenv.delete_venv()
+shutil.rmtree(appdirectory)
 
-
-copyDirectory(appdirectory,stagedirectory)
-cleanup()
+# Delete the virtualenv before pushing.
+delvenv.delete_venv()

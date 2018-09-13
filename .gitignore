@@ -1,0 +1,8 @@
+**/logs
+**/logs/debug.log
+Include/
+Lib/
+Scripts/
+tcl/
+pip-selfcheck.json
+*.csv
